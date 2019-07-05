@@ -1,0 +1,12 @@
+Package: heRe
+Type: Package
+Title: heRe geolocation API
+Version: 0.1.0
+Author: Luis HZ Paese
+Maintainer: Luis HZ Paese <lhzpaese@gmail.com>
+Description: This package was built as an interface to the Here geolocation API.
+    It covers geolocation interfaces, i.e., converting an address into coordinates,
+    and also covers reverse geocoding, i.e., converting coordinates into an address.
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
