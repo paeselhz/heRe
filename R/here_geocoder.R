@@ -23,6 +23,10 @@ here_geocoder <-
 
     `%>%` <- magrittr::`%>%`
 
+    src_address <- iconv(src_address, from = 'latin1', to = 'ASCII//TRANSLIT')
+
+    message(paste0('searching ', src_address))
+
     url <-
       paste0(
         'https://geocoder.api.here.com/6.2/geocode.json?',
@@ -43,6 +47,8 @@ here_geocoder <-
 
       Sys.sleep(2)
 
+      message('loop')
+
     }
 
     answer <-
@@ -50,12 +56,29 @@ here_geocoder <-
       .$Response %>%
       .$View %>%
       as.data.frame() %>%
-      janitor::clean_names() %>%
-      dplyr::select(
-        latitude  = result_location_display_position_latitude,
-        longitude = result_location_display_position_longitude
-      )
+      janitor::clean_names()
+
+    if(nrow(answer) != 0) {
+
+      answer <-
+        answer%>%
+        dplyr::select(
+          latitude  = result_location_display_position_latitude,
+          longitude = result_location_display_position_longitude
+        )
+
+      message('success')
+
+    } else {
+
+      answer <-
+        data.frame(latitude = NA,
+                   longitude = NA)
+
+      message('empty answer')
+    }
 
     return(as.list(answer))
 
   }
+
