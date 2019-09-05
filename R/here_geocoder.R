@@ -7,8 +7,8 @@
 #' searched address.
 #'
 #' @param src_address The address to be searched in the Here API
-#' @param app_id The developer application ID that uniquely identify the user
-#' @param app_code The developer application Code that uniquely identify the user
+#' @param here_id The developer application ID that uniquely identify the user
+#' @param here_code The developer application Code that uniquely identify the user
 #'
 #' @return Given a valid app_id, and app_code, the script returns a list containing
 #' the latitude and longitude of the given address;
@@ -19,7 +19,7 @@
 #' here_geocoder("27 King's College Cir, Toronto, ON M5S, Canada", '<YOUR_APP_ID>', '<YOUR_APP_CODE>')
 #' }
 here_geocoder <-
-  function(src_address, app_id, app_code){
+  function(src_address, here_id, here_code){
 
     `%>%` <- magrittr::`%>%`
 
@@ -30,8 +30,8 @@ here_geocoder <-
     url <-
       paste0(
         'https://geocoder.api.here.com/6.2/geocode.json?',
-        'app_id=', app_id,
-        '&app_code=', app_code,
+        'app_id=', here_id,
+        '&app_code=', here_code,
         '&searchtext=', gsub(' ', '+', src_address)
       )
 

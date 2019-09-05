@@ -4,14 +4,14 @@
 \alias{here_geocoder}
 \title{Geocoding with Here API}
 \usage{
-here_geocoder(src_address, app_id, app_code)
+here_geocoder(src_address, here_id, here_code)
 }
 \arguments{
 \item{src_address}{The address to be searched in the Here API}
 
-\item{app_id}{The developer application ID that uniquely identify the user}
+\item{here_id}{The developer application ID that uniquely identify the user}
 
-\item{app_code}{The developer application Code that uniquely identify the user}
+\item{here_code}{The developer application Code that uniquely identify the user}
 }
 \value{
 Given a valid app_id, and app_code, the script returns a list containing

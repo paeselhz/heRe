@@ -4,16 +4,16 @@
 \alias{here_reverse_geocoder}
 \title{Reverse Geocoding with Here API}
 \usage{
-here_reverse_geocoder(lat, lon, app_id, app_code)
+here_reverse_geocoder(lat, lon, here_id, here_code)
 }
 \arguments{
 \item{lat}{The latitude to be searched using the Here API - numeric}
 
 \item{lon}{The longitude to be searched using the Here API - numeric}
 
-\item{app_id}{The developer application ID that uniquely identify the user}
+\item{here_id}{The developer application ID that uniquely identify the user}
 
-\item{app_code}{The developer application Code that uniquely identify the user}
+\item{here_code}{The developer application Code that uniquely identify the user}
 }
 \value{
 Given a valid app_id, and app_code, the script returns a list containing
@@ -26,7 +26,7 @@ latityde and longitude pair;
 \details{
 This function works by verifying in the Here API the address of a given latitude and
 longitude. The return is a list containing multiple informations about the address
-label, country, state, city, district, street, house_number and postal code.#'
+label, country, state, city, district, street, house_number and postal code.
 }
 \examples{
 
